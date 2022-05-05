@@ -1,5 +1,9 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import Map from "../gis/Map";
+import { Layers, TileLayer } from "../gis/Layers";
+import { osm } from "../gis/Source";
+import { Controls, FullScreenControl } from "../gis/Controls";
+
 import './Tab1.css';
 
 const Tab1: React.FC = () => {
@@ -11,12 +15,14 @@ const Tab1: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 1</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name="Tab 1 page" />
+        <Map>
+          <Layers>
+            <TileLayer source={osm()} zIndex={0} />
+          </Layers>
+          <Controls>
+            <FullScreenControl />
+          </Controls>
+        </Map>
       </IonContent>
     </IonPage>
   );
