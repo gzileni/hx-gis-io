@@ -1,0 +1,7 @@
+{
+  "name": "hx-gis-io",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
